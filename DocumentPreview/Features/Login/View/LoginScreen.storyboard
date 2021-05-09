@@ -26,11 +26,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="krN-5X-Kv3">
-                                <rect key="frame" x="153" y="472" width="109" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="krN-5X-Kv3">
+                                <rect key="frame" x="127" y="472" width="160" height="45"/>
                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="zcp-t1-n8H"/>
+                                    <constraint firstAttribute="width" constant="160" id="0Zg-fN-lgn"/>
+                                    <constraint firstAttribute="height" constant="45" id="QHb-cK-lzy"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="le9-iZ-4LV"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="tintColor" systemColor="systemIndigoColor"/>
@@ -45,15 +47,15 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="CJ0-7l-igi" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="62" id="A3v-KP-ui0"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="krN-5X-Kv3" secondAttribute="bottom" constant="340" id="Cva-dy-ST6"/>
-                            <constraint firstItem="krN-5X-Kv3" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="153" id="D3q-14-QIP"/>
-                            <constraint firstItem="CJ0-7l-igi" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Dvj-h8-vwB"/>
-                            <constraint firstItem="Ocf-sI-MbW" firstAttribute="top" secondItem="CJ0-7l-igi" secondAttribute="bottom" constant="33" id="GLU-z4-qtm"/>
-                            <constraint firstItem="Ocf-sI-MbW" firstAttribute="centerX" secondItem="krN-5X-Kv3" secondAttribute="centerX" id="mx9-eq-Y6v"/>
-                            <constraint firstItem="CJ0-7l-igi" firstAttribute="trailing" secondItem="Ocf-sI-MbW" secondAttribute="trailing" id="no3-gX-4Qj"/>
-                            <constraint firstItem="CJ0-7l-igi" firstAttribute="leading" secondItem="Ocf-sI-MbW" secondAttribute="leading" id="sOZ-qq-C73"/>
-                            <constraint firstItem="CJ0-7l-igi" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="196" id="ycr-cz-mYh"/>
+                            <constraint firstItem="Ocf-sI-MbW" firstAttribute="top" secondItem="CJ0-7l-igi" secondAttribute="bottom" constant="33" id="6j4-3F-qY8"/>
+                            <constraint firstItem="krN-5X-Kv3" firstAttribute="top" secondItem="Ocf-sI-MbW" secondAttribute="bottom" constant="131" id="9xf-qg-E7Q"/>
+                            <constraint firstItem="CJ0-7l-igi" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="196" id="Byz-gt-seL"/>
+                            <constraint firstItem="krN-5X-Kv3" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="127" id="Ieg-Of-g3T"/>
+                            <constraint firstItem="Ocf-sI-MbW" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="62" id="KMp-D2-5zL"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="CJ0-7l-igi" secondAttribute="trailing" constant="62" id="Zlv-4P-8Hj"/>
+                            <constraint firstItem="CJ0-7l-igi" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="62" id="qIA-K1-IYw"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="krN-5X-Kv3" secondAttribute="trailing" constant="127" id="tku-hQ-Rxz"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Ocf-sI-MbW" secondAttribute="trailing" constant="62" id="zWz-tN-DsK"/>
                         </constraints>
                     </view>
                     <connections>

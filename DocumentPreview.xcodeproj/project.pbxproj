@@ -183,6 +183,7 @@
 				E1CD6FA626483C9400028418 /* Features */,
 				E1CD6F7526483C0E00028418 /* AppDelegate.swift */,
 				E1CD6F7E26483C0F00028418 /* Assets.xcassets */,
+				E1CD6F7B26483C0E00028418 /* Main.storyboard */,
 				E1CD6F8026483C0F00028418 /* LaunchScreen.storyboard */,
 				E1CD6F8326483C0F00028418 /* Info.plist */,
 			);
@@ -233,7 +234,6 @@
 			children = (
 				E1CD6FAD26483F7700028418 /* Animation */,
 				E1CD6F7926483C0E00028418 /* SplashViewController.swift */,
-				E1CD6F7B26483C0E00028418 /* Main.storyboard */,
 			);
 			path = Splash;
 			sourceTree = "<group>";
