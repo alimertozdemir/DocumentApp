@@ -25,9 +25,6 @@
 		E1CD6FBB26484D4100028418 /* LiveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CD6FBA26484D4100028418 /* LiveData.swift */; };
 		E1CD6FBD2648500500028418 /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CD6FBC2648500500028418 /* LoginRepository.swift */; };
 		E1CD6FBF264850FF00028418 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CD6FBE264850FF00028418 /* LoginService.swift */; };
-		E1CD6FC426485B9700028418 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CD6FC326485B9700028418 /* APIClient.swift */; };
-		E1CD6FC626485BD100028418 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CD6FC526485BD100028418 /* APIError.swift */; };
-		E1CD6FC826485C2300028418 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CD6FC726485C2300028418 /* Endpoint.swift */; };
 		E1CD6FCB26485D8000028418 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CD6FCA26485D8000028418 /* User.swift */; };
 		E1CD6FCE26485E3D00028418 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CD6FCD26485E3D00028418 /* Loadable.swift */; };
 		E1CD6FD12648622700028418 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CD6FCF2648622700028418 /* DashboardViewController.swift */; };
@@ -37,6 +34,9 @@
 		E1CD6FE02648674400028418 /* DashboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CD6FDF2648674400028418 /* DashboardService.swift */; };
 		E1CD6FE32648679400028418 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CD6FE22648679400028418 /* SearchResult.swift */; };
 		E1CD6FE826486D1A00028418 /* DocumentsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1CD6FE626486D1A00028418 /* DocumentsTableViewCell.xib */; };
+		E1CD6FEB2648B3B700028418 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CD6FEA2648B3B700028418 /* APIError.swift */; };
+		E1CD6FED2648B43500028418 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CD6FEC2648B43500028418 /* APIClient.swift */; };
+		E1CD6FEF2648B4C700028418 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CD6FEE2648B4C700028418 /* Endpoint.swift */; };
 		F99F834C3FBB78E7538FD189 /* Pods_DocumentPreview.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6B61A166860169CA99EC38E /* Pods_DocumentPreview.framework */; };
 /* End PBXBuildFile section */
 
@@ -88,9 +88,6 @@
 		E1CD6FBA26484D4100028418 /* LiveData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveData.swift; sourceTree = "<group>"; };
 		E1CD6FBC2648500500028418 /* LoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepository.swift; sourceTree = "<group>"; };
 		E1CD6FBE264850FF00028418 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
-		E1CD6FC326485B9700028418 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
-		E1CD6FC526485BD100028418 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
-		E1CD6FC726485C2300028418 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		E1CD6FCA26485D8000028418 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E1CD6FCD26485E3D00028418 /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 		E1CD6FCF2648622700028418 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +97,9 @@
 		E1CD6FDF2648674400028418 /* DashboardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardService.swift; sourceTree = "<group>"; };
 		E1CD6FE22648679400028418 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		E1CD6FE626486D1A00028418 /* DocumentsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DocumentsTableViewCell.xib; sourceTree = "<group>"; };
+		E1CD6FEA2648B3B700028418 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		E1CD6FEC2648B43500028418 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		E1CD6FEE2648B4C700028418 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		E9B99CBAC28AE247DD167E37 /* Pods-DocumentPreviewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DocumentPreviewTests.debug.xcconfig"; path = "Target Support Files/Pods-DocumentPreviewTests/Pods-DocumentPreviewTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -211,8 +211,8 @@
 		E1CD6FA526483C8D00028418 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				E1CD6FE92648B39F00028418 /* Network */,
 				E1CD6FCC26485E3100028418 /* Model */,
-				E1CD6FC02648570100028418 /* Network */,
 				E1CD6FB926484D3300028418 /* Observable */,
 				E1CD6FB0264840CB00028418 /* Extensions */,
 			);
@@ -285,16 +285,6 @@
 				E1CD6FBA26484D4100028418 /* LiveData.swift */,
 			);
 			path = Observable;
-			sourceTree = "<group>";
-		};
-		E1CD6FC02648570100028418 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				E1CD6FC326485B9700028418 /* APIClient.swift */,
-				E1CD6FC526485BD100028418 /* APIError.swift */,
-				E1CD6FC726485C2300028418 /* Endpoint.swift */,
-			);
-			path = Network;
 			sourceTree = "<group>";
 		};
 		E1CD6FC926485D7700028418 /* Model */ = {
@@ -394,6 +384,16 @@
 				E1CD6FE626486D1A00028418 /* DocumentsTableViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		E1CD6FE92648B39F00028418 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E1CD6FEA2648B3B700028418 /* APIError.swift */,
+				E1CD6FEC2648B43500028418 /* APIClient.swift */,
+				E1CD6FEE2648B4C700028418 /* Endpoint.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -644,7 +644,8 @@
 				E1CD6FBD2648500500028418 /* LoginRepository.swift in Sources */,
 				E1CD6FE02648674400028418 /* DashboardService.swift in Sources */,
 				E1CD6FB2264840F700028418 /* UIView.swift in Sources */,
-				E1CD6FC426485B9700028418 /* APIClient.swift in Sources */,
+				E1CD6FEB2648B3B700028418 /* APIError.swift in Sources */,
+				E1CD6FED2648B43500028418 /* APIClient.swift in Sources */,
 				E1CD6FDE2648672D00028418 /* DashboardRepository.swift in Sources */,
 				E1CD6F7A26483C0E00028418 /* SplashViewController.swift in Sources */,
 				E1CD6FE32648679400028418 /* SearchResult.swift in Sources */,
@@ -655,8 +656,7 @@
 				E1CD6F7626483C0E00028418 /* AppDelegate.swift in Sources */,
 				E1CD6FB4264847BC00028418 /* LoginViewController.swift in Sources */,
 				E1CD6FAF2648409400028418 /* LogoAnimationView.swift in Sources */,
-				E1CD6FC826485C2300028418 /* Endpoint.swift in Sources */,
-				E1CD6FC626485BD100028418 /* APIError.swift in Sources */,
+				E1CD6FEF2648B4C700028418 /* Endpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

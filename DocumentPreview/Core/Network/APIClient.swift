@@ -2,71 +2,80 @@
 //  APIClient.swift
 //  DocumentPreview
 //
-//  Created by Ali Mert on 9.05.2021.
+//  Created by Ali Mert on 10.05.2021.
 //
 
 import Foundation
 
-protocol APIClient {
+
+protocol API {
     
-    func fetch<T: Decodable>(with request: URLRequest,
-                             decode: @escaping (Decodable) -> T?, completion: @escaping (Result<T, APIError>) -> Void)
+    func httpRequest<T: Decodable> (with request: URLRequest, decode: @escaping (Decodable) -> T?, completion: @escaping (Result<T, APIError>) -> Void)
     
 }
 
-extension APIClient {
+class APIClient: API {
     
-    typealias JSONTaskCompletionHandler = (Decodable?, APIError?) -> Void
+    typealias jsonTaskCompletionHandler = (Decodable?, APIError?) -> Void
     
-    private func decodingTask<T: Decodable>(with request: URLRequest,
-                                            decodingType: T.Type,
-                                            completionHandler completion: JSONTaskCompletionHandler?) -> URLSessionDataTask {
-        let task = URLSession.shared.dataTask(with: request) { data, response, _ in
+    var session: URLSession
+    
+    init(configuration: URLSessionConfiguration) {
+        self.session = URLSession(configuration: configuration)
+    }
+    
+    convenience init() {
+        self.init(configuration: .default)
+    }
+    
+    private func decodingTask<T: Decodable> (with request: URLRequest, decodingType: T.Type, completion: @escaping jsonTaskCompletionHandler) -> URLSessionDataTask {
+        
+        let task = session.dataTask(with: request) { (data, response, error) in
             guard let httpResponse = response as? HTTPURLResponse else {
-                completion?(nil, .requestFailed)
+                completion(nil, .requestFailed)
                 return
             }
-            if httpResponse.statusCode == 200 || httpResponse.statusCode == 201 {
+            
+            if httpResponse.statusCode == 200 {
                 if let data = data {
                     do {
-                        let decoder = JSONDecoder()
-                        let genericModel = try decoder.decode(decodingType, from: data)
-                        completion?(genericModel, nil)
+                        let genericModel = try JSONDecoder().decode(decodingType, from: data)
+                        completion(genericModel, nil)
                     } catch {
-                        print(error.localizedDescription)
-                        completion?(nil, .requestFailed)
+                        completion(nil, .jsonConversionFailure)
                     }
                 } else {
-                    completion?(nil, .invalidData)
+                    completion(nil, .invalidData)
                 }
             } else {
-                completion?(nil, APIError(response: httpResponse))
+                completion(nil, .responseUnsuccessful)
             }
         }
         return task
     }
     
-    func fetch<T: Decodable>(with request: URLRequest,
-                             decode: @escaping (Decodable) -> T?,
-                             completion: @escaping (Result<T, APIError>) -> Void) {
+    func httpRequest<T: Decodable> (with request: URLRequest, decode: @escaping (Decodable) -> T?,
+                              completion: @escaping (Result<T, APIError>) -> Void) {
         let task = decodingTask(with: request, decodingType: T.self) { (json, error) in
+            
             DispatchQueue.main.async {
                 guard let json = json else {
                     if let error = error {
                         completion(Result.failure(error))
                     } else {
-                        completion(Result.failure(.requestFailed))
+                        completion(Result.failure(.invalidData))
                     }
                     return
                 }
+                
                 if let value = decode(json) {
-                    completion(.success(value))
+                    completion(Result.success(value))
                 } else {
-                    completion(.failure(.requestFailed))
+                    completion(Result.failure(.jsonParsingFailure))
                 }
             }
         }
+        
         task.resume()
     }
-    
 }
