@@ -28,6 +28,7 @@ class APIClient: API {
         self.init(configuration: .default)
     }
     
+    @discardableResult
     private func decodingTask<T: Decodable> (with request: URLRequest, decodingType: T.Type, completion: @escaping jsonTaskCompletionHandler) -> URLSessionDataTask {
         
         let task = session.dataTask(with: request) { (data, response, error) in
@@ -78,4 +79,5 @@ class APIClient: API {
         
         task.resume()
     }
+    
 }

@@ -11,6 +11,7 @@ enum APIError: Error {
     
     case invalidData
     case requestFailed
+    case fileConversionFailure
     case jsonConversionFailure
     case jsonParsingFailure
     case responseUnsuccessful
@@ -21,6 +22,8 @@ enum APIError: Error {
             return "Invalid Data"
         case .requestFailed:
             return "Request Failed"
+        case .fileConversionFailure:
+            return "File Conversion Failure"
         case .jsonConversionFailure:
             return "JSON Conversion Failure"
         case .jsonParsingFailure:

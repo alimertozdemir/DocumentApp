@@ -9,7 +9,7 @@ import Foundation
 
 public typealias HTTPHeaders = [String:String]
 
-public let BASE_URL = "https://run.mocky.io/v3"
+public let BASE_URL = "https://run.mocky.io"
 
 enum HTTPMethod: String {
     
@@ -26,7 +26,7 @@ enum HTTPMethod: String {
 }
 
 public struct Endpoint {
-    var path: String
+    var path: String?
     var httpMethod: HTTPMethod
     var headers: HTTPHeaders?
     var body: Data?
@@ -37,16 +37,16 @@ extension Endpoint {
     
     var urlComponents: URLComponents {
         var component = URLComponents(string: BASE_URL)!
-        component.path = "/" + path
-        component.queryItems = queryItems
+        if let path = path { component.path = path }
+        if let queryItems = queryItems { component.queryItems = queryItems }
         return component
     }
-    
+        
     var request: URLRequest {
         var request = URLRequest(url: urlComponents.url!)
+        print("URL Request: \(String(describing: request.url?.absoluteString))")
         request.httpMethod  = httpMethod.rawValue
         request.httpBody    = body
-        request.setValue("Content-Type", forHTTPHeaderField: "application/json; charset=utf-8")
         if let headers = headers {
             for(headerField, headerValue) in headers {
                 request.setValue(headerValue, forHTTPHeaderField: headerField)
