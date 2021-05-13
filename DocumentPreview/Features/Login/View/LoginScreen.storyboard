@@ -12,7 +12,7 @@
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController storyboardIdentifier="LoginScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="LoginViewController" customModule="DocumentPreview" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc" customClass="LoginView" customModule="DocumentPreview" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -40,7 +40,7 @@
                                     <color key="titleColor" systemColor="systemIndigoColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="loginButtonAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="IHe-vf-dVG"/>
+                                    <action selector="loginButtonAction:" destination="5EZ-qb-Rvc" eventType="touchUpInside" id="q3g-zh-8pw"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -57,10 +57,13 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="krN-5X-Kv3" secondAttribute="trailing" constant="127" id="tku-hQ-Rxz"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Ocf-sI-MbW" secondAttribute="trailing" constant="62" id="zWz-tN-DsK"/>
                         </constraints>
+                        <connections>
+                            <outlet property="mailAddress" destination="CJ0-7l-igi" id="imV-vc-rSC"/>
+                            <outlet property="password" destination="Ocf-sI-MbW" id="3n1-gN-yx4"/>
+                        </connections>
                     </view>
                     <connections>
-                        <outlet property="mailAddress" destination="CJ0-7l-igi" id="UQa-FJ-yRJ"/>
-                        <outlet property="password" destination="Ocf-sI-MbW" id="MOg-8f-Lfh"/>
+                        <outlet property="loginView" destination="5EZ-qb-Rvc" id="xUf-Qd-6Bp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

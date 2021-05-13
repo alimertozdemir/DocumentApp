@@ -17,11 +17,6 @@ enum HTTPMethod: String {
     case post       = "POST"
     case put        = "PUT"
     case delete     = "DELETE"
-    case patch      = "PATCH"
-    case head       = "HEAD"
-    case trace      = "TRACE"
-    case connect    = "CONNECT"
-    case options    = "OPTIONS"
     
 }
 
@@ -46,7 +41,10 @@ extension Endpoint {
         var request = URLRequest(url: urlComponents.url!)
         print("URL Request: \(String(describing: request.url?.absoluteString))")
         request.httpMethod  = httpMethod.rawValue
-        request.httpBody    = body
+        
+        if let body = body {
+            request.httpBody = try? JSONEncoder().encode(body)
+        }
         if let headers = headers {
             for(headerField, headerValue) in headers {
                 request.setValue(headerValue, forHTTPHeaderField: headerField)

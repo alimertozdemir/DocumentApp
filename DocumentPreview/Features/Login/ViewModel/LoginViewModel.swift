@@ -7,7 +7,7 @@
 
 import Foundation
 
-class LoginViewModel {
+final class LoginViewModel {
     
     // Output
     var userLogin: LiveData<Loadable<User>> = LiveData()

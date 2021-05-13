@@ -28,6 +28,37 @@ class APIClient: API {
         self.init(configuration: .default)
     }
     
+    // MARK: Handle all HTTP Request
+    
+    func httpRequest<T: Decodable> (with request: URLRequest, decode: @escaping (Decodable) -> T?, completion: @escaping (Result<T, APIError>) -> Void) {
+        
+        let task = decodingTask(with: request, decodingType: T.self) { (json, error) in
+            
+            DispatchQueue.main.async {
+                guard let json = json else {
+                    if let error = error {
+                        completion(Result.failure(error))
+                    } else {
+                        completion(Result.failure(.invalidData))
+                    }
+                    return
+                }
+                
+                if let value = decode(json) {
+                    completion(Result.success(value))
+                } else {
+                    completion(Result.failure(.jsonParsingFailure))
+                }
+            }
+        }
+        
+        task.resume()
+    }
+    
+}
+
+extension APIClient {
+    
     @discardableResult
     private func decodingTask<T: Decodable> (with request: URLRequest, decodingType: T.Type, completion: @escaping jsonTaskCompletionHandler) -> URLSessionDataTask {
         
@@ -53,31 +84,6 @@ class APIClient: API {
             }
         }
         return task
-    }
-    
-    func httpRequest<T: Decodable> (with request: URLRequest, decode: @escaping (Decodable) -> T?,
-                              completion: @escaping (Result<T, APIError>) -> Void) {
-        let task = decodingTask(with: request, decodingType: T.self) { (json, error) in
-            
-            DispatchQueue.main.async {
-                guard let json = json else {
-                    if let error = error {
-                        completion(Result.failure(error))
-                    } else {
-                        completion(Result.failure(.invalidData))
-                    }
-                    return
-                }
-                
-                if let value = decode(json) {
-                    completion(Result.success(value))
-                } else {
-                    completion(Result.failure(.jsonParsingFailure))
-                }
-            }
-        }
-        
-        task.resume()
     }
     
 }

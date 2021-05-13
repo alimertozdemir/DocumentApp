@@ -8,7 +8,7 @@
 import Foundation
 
 
-class DashboardRepository {
+final class DashboardRepository {
     
     var searchResult: ((SearchResult) -> Void)?
     

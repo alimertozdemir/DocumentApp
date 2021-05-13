@@ -9,8 +9,11 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    @IBOutlet weak var mailAddress: UITextField!
-    @IBOutlet weak var password: UITextField!
+    @IBOutlet private var loginView: LoginView! {
+        willSet {
+            newValue.delegate = self
+        }
+    }
     
     private var viewModel = LoginViewModel()
 
@@ -18,15 +21,6 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 
         observeViewModel()
-        
-    }
-    
-    @IBAction func loginButtonAction(_ sender: Any) {
-        
-        print("E-Mail Address: \(mailAddress.text ?? "")")
-        print("Password: \(password.text ?? "")")
-        
-        viewModel.doLogin(mail: mailAddress.text, password: password.text)
         
     }
     
@@ -40,7 +34,7 @@ class LoginViewController: UIViewController {
                 self?.hideAnimatedActivityIndicatorView()
                 
                 print("Name: \(user.userName ?? "")")
-                print("Name: \(user.userSurname ?? "")")
+                print("Surname: \(user.userSurname ?? "")")
                 
                 self?.openDashboard(user: user)
             case .failed(_):
@@ -56,6 +50,15 @@ class LoginViewController: UIViewController {
         dashboardVC.nameSurnameText = userName + " " + userSurname
         dashboardVC.modalPresentationStyle = .fullScreen
         self.present(dashboardVC, animated: false, completion: nil)
+    }
+    
+}
+
+extension LoginViewController: LoginViewDelegate {
+    
+    func actionLoginButton(username: String, pass: String) {
+        
+        viewModel.doLogin(mail: username, password: pass)
     }
     
 }

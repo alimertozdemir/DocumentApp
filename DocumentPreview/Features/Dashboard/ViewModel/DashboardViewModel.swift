@@ -8,7 +8,7 @@
 import Foundation
 
 
-class DashboardViewModel {
+final class DashboardViewModel {
     
     // Outputs
     var documentList: LiveData<Loadable<[Document]?>> = LiveData()

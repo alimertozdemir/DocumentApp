@@ -9,7 +9,12 @@ import UIKit
 
 class DashboardViewController: UIViewController {
     
-    @IBOutlet weak var documentsTableView: UITableView!
+    @IBOutlet weak var documentsTableView: UITableView! {
+        willSet {
+            newValue.register(UITableViewCell.self, forCellReuseIdentifier: "DocumentCell")
+            newValue.tableFooterView = UIView()
+        }
+    }
     
     private var docs: [Document]?
     private var viewModel = DashboardViewModel()
@@ -19,7 +24,6 @@ class DashboardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupUI()
         observeViewModel()
         
     }
@@ -30,12 +34,7 @@ class DashboardViewController: UIViewController {
         viewModel.getDocs(nameSurname: nameSurnameText)
         
     }
-    
-    private func setupUI() {
-        documentsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "DocumentCell")
-        documentsTableView.tableFooterView = UIView()
-    }
-    
+        
     private func observeViewModel() {
         
         viewModel.documentList.observe { [weak self] state in

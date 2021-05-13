@@ -7,7 +7,7 @@
 
 import Foundation
 
-class LoginRepository {
+final class LoginRepository {
     
     var didUserLoggedIn: ((User) -> Void)?
     
