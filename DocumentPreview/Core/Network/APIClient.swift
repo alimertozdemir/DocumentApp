@@ -55,6 +55,33 @@ class APIClient: API {
         task.resume()
     }
     
+    func wsRequest<T: Decodable> (with url: URLRequest, decode: @escaping (Decodable) -> T?, completion: @escaping (Result<T, APIError>) -> Void) {
+        
+        let task = decodingWsTask(with: url)
+            
+            DispatchQueue.main.async {
+                guard let json = json else {
+                    if let error = error {
+                        completion(Result.failure(error))
+                    } else {
+                        completion(Result.failure(.invalidData))
+                    }
+                    return
+                }
+                
+                if let value = decode(json) {
+                    completion(Result.success(value))
+                } else {
+                    completion(Result.failure(.jsonParsingFailure))
+                }
+            }
+        }
+        
+        task.resume()
+    }
+    
+    
+    
 }
 
 extension APIClient {
@@ -84,6 +111,14 @@ extension APIClient {
             }
         }
         return task
+    }
+    
+    @discardableResult
+    private func decodingWsTask(with request: URLRequest) -> URLSessionWebSocketTask {
+        
+        
+        return session.webSocketTask(with: request)
+        
     }
     
 }
